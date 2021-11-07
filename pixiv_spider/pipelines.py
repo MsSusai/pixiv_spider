@@ -30,12 +30,12 @@ class DownloadImagesPipeline(ImagesPipeline):
             yield Request(imgUrl)
 
     def item_completed(self, results, item, info):
-        if len(item['imageNum']) > 1:
-            os.rename(image_store + '/' + results[0][1]['path'],
-                      image_store + '/' + item['imageName'] + '_p' + str(item['imageNum'].pop(0)) + '.jpg')
-        else:
-            os.rename(image_store + '/' + results[0][1]['path'],
-                      image_store + '/' + item['imageName'] + '_p' + str(item['imageNum'][0]) + '.jpg')
+        # if len(item['imageNum']) > 1:
+        #     os.rename(image_store + '/' + results[0][1]['path'],
+        #               image_store + '/' + item['imageName'] + '_p' + str(item['imageNum'].pop(0)) + '.jpg')
+        # else:
+        os.rename(image_store + '/' + results[0][1]['path'],
+                  image_store + '/' + item['imageName'] + '.jpg')
 
     def __del__(self):
         # 完成后删除full目录

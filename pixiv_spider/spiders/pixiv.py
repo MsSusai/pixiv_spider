@@ -56,4 +56,14 @@ class PixivSpider(scrapy.Spider):
         json = response.json()
         item['imageName'] = json['body']['illustTitle']
         # # print(item)
-        yield item
+
+        # 将一个名称下的多个下载链接分拆成单个名称单个链接
+        if len(item['imageNum']) > 1:
+            for url in item['imageUrl']:
+                newItem = PixivSpiderItem()
+                newItem['imageName'] = item['imageName'] + '_p' + str(item['imageNum'].pop(0))
+                newItem['imageUrl'] = [url]
+                newItem['imagePid'] = item['imagePid']
+                yield newItem
+        else:
+            yield item

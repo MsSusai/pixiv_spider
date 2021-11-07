@@ -52,8 +52,9 @@ DEFAULT_REQUEST_HEADERS = {
     'accept': 'application/json',
     'accept-Language': 'en',
     'referer': 'https://www.pixiv.net/users/3718340',
-    'cookie': '' # 填入你自己的cookie
-
+    'cookie': ''
+    # 填入你自己的cookie
+}
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 # SPIDER_MIDDLEWARES = {
