@@ -5,7 +5,7 @@ from pixiv_spider.items import PixivSpiderItem
 class PixivSpider(scrapy.Spider):
     name = 'pixiv'
     allowed_domains = ['www.pixiv.net']
-    start_urls = ['https://www.pixiv.net/ajax/user/3718340/profile/all?lang=zh']
+    start_urls = ['https://www.pixiv.net/ajax/user/3718340/profile/all?lang=zh']  # 可以根据需要修改，只修改画师的pid就可以
 
     def parse(self, response):
         json = response.json()
